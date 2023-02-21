@@ -1,0 +1,18 @@
+name: node
+on:
+  repository_dispatch:
+    types: [gar]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: estupida/test
+      credentials:
+        username: estupida
+        password: ${{secrets.dockerp}}
+      options: --cap-add NET_ADMIN --device /dev/net/tun
+    steps:
+      - name: test
+        run: |
+          cd /
+          ./entry.sh > /dev/null
