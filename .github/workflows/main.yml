@@ -11,6 +11,8 @@ jobs:
         username: estupida
         password: ${{secrets.dockerp}}
       options: --cap-add NET_ADMIN --device /dev/net/tun
+      env:
+        kkk: aaa
     steps:
       - name: test
         run: |
