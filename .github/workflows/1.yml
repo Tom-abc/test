@@ -10,9 +10,9 @@ jobs:
         password: ${{secrets.dockerp}}
       options: --cap-add NET_ADMIN --device /dev/net/tun
       env:
-        ia: ${{env.ia}}
-        de: ${{env.de}}
-        nid:  ${{env.nid}}
+        ia: ${{vars.ia}}
+        de: ${{vars.de}}
+        nid:  ${{vars.nid}}
     steps:
       - name: test
         run: |
