@@ -1,0 +1,21 @@
+name: nod
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: estupida/test:0.1
+      credentials:
+        username: estupida
+        password: ${{secrets.dockerp}}
+      options: --cap-add NET_ADMIN --device /dev/net/tun
+      env:
+        ia: ${{env.ia}}
+        de: ${{env.de}}
+        nid:  ${{env.nid}}
+    steps:
+      - name: test
+        run: |
+          ip a
+          cd /
+          ./entry.sh
