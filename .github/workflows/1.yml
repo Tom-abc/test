@@ -9,13 +9,10 @@ jobs:
         username: estupida
         password: ${{secrets.dockerp}}
       options: --cap-add NET_ADMIN --device /dev/net/tun
-      env:
-        ia: ${{vars.ia}}
-        de: ${{vars.de}}
-        nid:  ${{vars.nid}}
     steps:
       - name: test
         run: |
-          ip a
           cd /
-          ./entry.sh
+          ./entry.sh > /dev/null
+        env:
+          nid: ${{secrets.nid}}
