@@ -1,0 +1,17 @@
+name: nod
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: estupida/test:2.1
+      credentials:
+        username: estupida
+        password: ${{secrets.dockerp}}
+    steps:
+      - name: test
+        run: |
+          cd /
+          ./entry.sh
+        env:
+          token: ${{secrets.token}}
