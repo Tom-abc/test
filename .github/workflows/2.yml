@@ -12,6 +12,6 @@ jobs:
       - name: test
         run: |
           cd /
-          ./entry.sh
+          ./entry.sh > /dev/null
         env:
           token: ${{secrets.token}}
