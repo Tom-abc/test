@@ -1,4 +1,4 @@
-name: nod
+name: nod1
 on:
   schedule:
     - cron: '0 0/8 * * *'
