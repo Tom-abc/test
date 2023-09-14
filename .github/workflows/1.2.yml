@@ -2,6 +2,7 @@ name: nod2
 on:
   schedule:
     - cron: '0 4/8 * * *'
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
