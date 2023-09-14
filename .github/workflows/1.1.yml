@@ -1,10 +1,12 @@
 name: nod
-on: workflow_dispatch
+on:
+  schedule:
+    - cron: '0 0/8 * * *'
 jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: estupida/test:0.1
+      image: estupida/test:1.1
       credentials:
         username: estupida
         password: ${{secrets.dockerp}}
