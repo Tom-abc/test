@@ -1,0 +1,20 @@
+name: nod
+on:
+  schedule:
+    - cron: '0 4/8 * * *'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: estupida/test:1.2
+      credentials:
+        username: estupida
+        password: ${{secrets.dockerp}}
+      options: --cap-add NET_ADMIN --device /dev/net/tun
+    steps:
+      - name: test
+        run: |
+          cd /
+          ./entry.sh > /dev/null
+        env:
+          nid: ${{secrets.nid}}
