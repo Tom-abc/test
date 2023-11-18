@@ -1,7 +1,7 @@
 name: nod1
 on:
   schedule:
-    - cron: '0 0/8 * * *'
+    - cron: '5 0/8 * * *'
 jobs:
   test:
     runs-on: ubuntu-latest
